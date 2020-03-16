@@ -8,13 +8,13 @@
                 :show-timeout="0"
                 :hide-timeout="0"
                 @command="handleCommand">
-                <div class="menu-item" :class="{ 'is-active': active === m.name }">{{ m.name }}</div>
+                <div class="menu-item" :class="{ 'is-active': active === m.name }">{{ m.meta.title }}</div>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item
                         v-for="submenu in m.children"
                         :key="submenu.name"
                         :command="submenu">
-                        {{ submenu.name }}
+                        {{ submenu.meta.title }}
                     </el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
@@ -24,7 +24,7 @@
                 class="menu-item"
                 :class="{ 'is-active': active === m.name }"
                 @click="handleClick(m)">
-                {{ m.name }}
+                {{ m.meta.title }}
             </div>
 
         </div>
@@ -66,6 +66,12 @@ export default {
             }
         });
         this.menu = menu;
+
+        // 定位
+        const path = this.$route.path.split("/")[1];
+        menu.forEach(item => {
+            if (item.path === "/" + path) this.active = item.name;
+        });
     },
 
     methods: {

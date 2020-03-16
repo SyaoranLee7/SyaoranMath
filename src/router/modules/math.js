@@ -6,20 +6,20 @@ const mathRouter = {
     redirect: "noRedirect",
     name: "Math",
     meta: {
-        title: "Math"
+        title: "数学"
     },
     children: [
         {
-            path: "normalDistribution",
-            component: () => import("@/views/math/NormalDistribution.vue"),
+            path: "NormalDistribution",
+            component: () => import("@/views/math/NormalDistribution/NormalDistribution.vue"),
             name: "NormalDistribution",
             meta: { title: "正态分布" }
         },
         {
-            path: "binomialDistribution",
-            component: () => import("@/views/math/BinomialDistribution.vue"),
-            name: "BinomialDistribution",
-            meta: { title: "二项分布" }
+            path: "MinkowskiDistance",
+            component: () => import("@/views/math/MinkowskiDistance/MinkowskiDistance.vue"),
+            name: "MinkowskiDistance",
+            meta: { title: "闵可夫斯基距离" }
         }
     ]
 };

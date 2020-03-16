@@ -1,7 +1,8 @@
+// 下拉菜单
 .el-dropdown-menu {
     padding: 0px;
     margin-top: 0px !important;
-    margin-right: -150px !important;
+    margin-right: -100px !important;
     .el-dropdown-menu__item {
         height: 50px;
         line-height: 50px;
@@ -14,5 +15,13 @@
     .el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
         background-color: #FFFFFF;
         color: #009999;
+    }
+}
+
+.lan-main {
+    .lan-content {
+        .el-select {
+            width: 100%;
+        }
     }
 }

@@ -5,6 +5,9 @@ import Element from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Element);
 
+// Echarts
+import "echarts-gl";
+
 import "normalize.css/normalize.css"; // a modern alternative to CSS resets
 
 import "@/styles/index.scss"; // global css

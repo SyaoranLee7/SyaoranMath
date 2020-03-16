@@ -1,5 +1,72 @@
+// 主页面
 .lan-main {
     margin: 20px 40px;
     padding: 20px 40px;
     background-color: #FFFFFF;
+    height: calc(100% - 40px);
+    overflow: auto;
+    // 页面头部
+    &-head {
+        display: flex;
+        height: 70px;
+        line-height: 70px;
+        .title {
+            font-size: $fontSize_xxl;
+            color: $fontColor_blue;
+        }
+        .link {
+            margin-left: 40px;
+            font-size: $fontSize_small;
+            color: $fontSie_link;
+            span {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+        }
+    }
+    // 页面主体
+    .lan-content {
+        display: flex;
+        .setting-base, .setting-advance {
+            width: 25%;
+            border-right: 1px solid $colorBorder_gray;
+        }
+        .setting-result { flex-grow: 1; }
+        .setting-base, .setting-advance, .setting-result {
+            .title {
+                height: 40px;
+                line-height: 40px;
+                margin-bottom: 20px;
+                font-size: $fontSize_default;
+                font-weight: 700;
+                color: $fontColor_black;
+                border-bottom: 1px solid $colorBorder_gray;
+            }
+            // 表单el-form
+            .lan-form-tooltip {
+                position: absolute;
+                cursor: pointer;
+                color: $fontColor_blue;
+            }
+        }
+        .setting-base {
+            padding-right: 20px;
+        }
+        .setting-advance {
+            padding: 0 20px;
+        }
+        .setting-result {
+            padding-left: 20px;
+        }
+    }
+}
+
+.lan-setting {
+    &-operate {
+        display: flex;
+        flex-direction: column;
+        .btn {
+            margin: 5px 10px;
+        }
+    }
 }

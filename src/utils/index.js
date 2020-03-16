@@ -1,4 +1,16 @@
 /**
+ * 生成随机十六进制颜色
+ * @returns {string}
+ */
+export function getRandomColor () {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+    return color;
+}
+
+/**
  * Parse the time to string
  * @param {(Object|string|number)} time
  * @param {string} cFormat

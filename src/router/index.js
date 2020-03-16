@@ -8,6 +8,7 @@ import Layout from "@/layout";
 
 // Modules
 import Math from "./modules/math.js";
+import Algorithm from "./modules/algorithm.js";
 
 export const constantRoutes = [
     {
@@ -24,7 +25,7 @@ export const constantRoutes = [
             path: "home",
             name: "",
             component: () => import("@/views/home/index"),
-            meta: { title: "Home" }
+            meta: { title: "首页" }
         }]
     },
     {
@@ -34,6 +35,7 @@ export const constantRoutes = [
         meta: { title: "首页" }
     },
     Math,
+    Algorithm,
     { path: "*", redirect: "/404", hidden: true }
 ];
 
