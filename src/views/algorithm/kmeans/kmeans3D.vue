@@ -25,7 +25,7 @@
                             effect="dark"
                             content="随机模式毫无意义..."
                             placement="top">
-                            <div class="lan-form-tooltip" style="margin-left: -60px;">
+                            <div class="lan-form-tooltip" style="margin-left: -50px;">
                                 <i class="el-icon-warning" />
                             </div>
                         </el-tooltip>
@@ -70,7 +70,6 @@
     </div>
 </template>
 <script>
-import MegaMath from "@/utils/MegaMath.js";
 import kmeans from "./kmeans.js";
 import constant from "@/utils/constant.js";
 export default {

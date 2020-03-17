@@ -11,6 +11,23 @@ export function getRandomColor () {
 }
 
 /**
+ * 对象深拷贝
+ */
+export function clone (obj) {
+    if (obj === null) return null;
+    if (typeof obj !== "object") return obj;
+    if (obj.constructor === Date) return new Date(obj);
+    var newObj = new obj.constructor (); //保持继承链
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) { //不遍历其原型链上的属性
+            const val = obj[key];
+            newObj[key] = typeof val === "object" ? arguments.callee(val) : val; // 使用arguments.callee解除与函数名的耦合
+        }
+    }
+    return newObj;
+}
+
+/**
  * Parse the time to string
  * @param {(Object|string|number)} time
  * @param {string} cFormat

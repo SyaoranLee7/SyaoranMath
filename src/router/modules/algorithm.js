@@ -20,6 +20,12 @@ const algorithmRouter = {
             component: () => import("@/views/algorithm/kmeans/kmeans3D.vue"),
             name: "kMeans3D",
             meta: { title: "K-Means算法-3D" }
+        },
+        {
+            path: "LevelCohesion",
+            component: () => import("@/views/algorithm/LevelCohesion/LevelCohesion.vue"),
+            name: "LevelCohesion",
+            meta: { title: "LevelCohesion层次凝聚算法" }
         }
     ]
 };
