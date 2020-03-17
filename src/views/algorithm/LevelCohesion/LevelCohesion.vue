@@ -55,7 +55,6 @@
                 </el-form>
                 <el-button type="primary" @click="initData">生成随机数据</el-button>
                 <el-button type="primary" @click="run">开始</el-button>
-                <el-button type="primary" @click="cohesionOnce">开始一次</el-button>
             </div>
 
             <div class="setting-result">
@@ -91,16 +90,8 @@ export default {
             },
 
             dataSets: [], // 初始数据集
-            message: [], // 处理中的消息
-
-            // 原数据
-            originData: [],
-            center: [],
-            standardDeviation: 100,
-
-            // 结果数据
-            processResult: [],
-            result: []
+            result: [], // 结果数据
+            message: [] // 处理中的消息
         };
     },
 
@@ -146,125 +137,6 @@ export default {
                 this.result = result;
                 this.initEchart();
             }
-
-            // this.cohesionByDistance()
-        },
-
-        cohesionOnce () {
-            if (this.inputData.type === "maxDistance") {
-                this.cohesionByDistanceOnce();
-            }
-        },
-
-        // 按最大距离 计算一次
-        cohesionByDistanceOnce () {
-            const clust = JSON.parse(JSON.stringify(this.processResult));
-            console.log("clust:", clust);
-            const max = this.inputData.maxDistance;
-            const ignoreList = [];
-            const processingResult = [];
-
-            // 如果只有一个簇, 直接输出为结果
-            if (clust.length === 1) {
-                this.result.push(clust[0]);
-            } else if (clust.length > 1) {
-                // 循环每个簇A
-                clust.forEach((clustA, a) => {
-                    // 忽略已经被当做簇B合并过的簇
-                    let ignoreResultA = true;
-                    if (ignoreList.length > 0) {
-                        ignoreList.forEach((item) => {
-                            if (item === a) ignoreResultA = false;
-                        });
-                    }
-
-                    if (ignoreResultA) {
-                        const centerPointA = (this.getCenter(clustA)).toString(); // 获取簇A的中心点
-                        let minDis = 0; // clustA与各个簇的最小距离
-                        let minObject = {}; // 与clustA最近的clustB信息对象
-
-                        clust.forEach((clustB, b) => {
-                            // 不能计算两个相同的簇
-                            if (a !== b) {
-                                // 不计算已经合并或输入的簇
-                                let ignoreResultB = true;
-                                if (ignoreList.length > 0) {
-                                    ignoreList.forEach((item) => {
-                                        if (item === b) ignoreResultB = false;
-                                    });
-                                }
-
-                                if (ignoreResultB) {
-                                    const centerPointB = (this.getCenter(clustB).toString()); // 获取簇B的中心点
-                                    const dis = MegaMath.getMinkowskiDistance(centerPointA, centerPointB, 2); // 计算距离
-                                    console.log("簇", a, "对簇", b, "的距离为", dis);
-                                    if (minDis === 0 || minDis > dis) {
-                                        minDis = dis;
-                                        minObject = {
-                                            index: b,
-                                            dis: dis,
-                                            clust: clustB
-                                        };
-                                    }
-                                }
-                            }
-                        });
-
-                        console.log("簇", a, "的最小距离为簇", minObject.index, ",距离为", minObject.dis);
-
-                        if (minObject.dis > max) {
-                            console.log("对result输出簇", a);
-                            this.result.push(clustA); // 最小距离仍大于闸值时, 该簇clustA即为结果之一
-                        } else if (minObject.dis <= max) {
-                            // 最小值小于闸值时, 合并这两个簇
-                            const arr = [];
-                            clustA.forEach((ca) => {
-                                arr.push(ca);
-                            });
-                            minObject.clust.forEach((cb) => {
-                                arr.push(cb);
-                            });
-                            processingResult.push(arr);
-
-                            console.log("对processingResult输出簇", a, "与", minObject.index);
-                            ignoreList.push(minObject.index); // 下次大循环簇B时, 忽略簇B
-                        } else if (!minObject.dis) {
-                            console.log("对processingResult输出簇", a);
-                            processingResult.push(clustA); // 剩最后一簇时，直接输出
-                        }
-
-                        ignoreList.push(a); // 下次大循环簇B时, 忽略簇A
-
-                        /*
-                          一次大循环后的校验
-                          当clust中仅剩下一项的时候，直接将该簇输出result
-                          当clust中无簇时，直接结束算法
-                        */
-                    }
-                });
-            }
-
-            console.log("processingResult:", processingResult);
-            console.log("result:", this.result);
-            this.processResult = JSON.parse(JSON.stringify(processingResult));
-
-            this.initEchart();
-        },
-
-        // 计算一个三维坐标集合的中心点
-        getCenter (arr) {
-            let x = 0;
-            let y = 0;
-            let z = 0;
-            arr.forEach((item) => {
-                x = x + item[0];
-                y = y + item[1];
-                z = z + item[2];
-            });
-            const xCenter = x / arr.length;
-            const yCenter = y / arr.length;
-            const zCenter = z / arr.length;
-            return [xCenter, yCenter, zCenter];
         },
 
         /* 生成原始数据 */
