@@ -20,6 +20,12 @@ const mathRouter = {
             component: () => import("@/views/math/MinkowskiDistance/MinkowskiDistance.vue"),
             name: "MinkowskiDistance",
             meta: { title: "闵可夫斯基距离" }
+        },
+        {
+            path: "SpaceGeometry",
+            component: () => import("@/views/math/SpaceGeometry/SpaceGeometry.vue"),
+            name: "SpaceGeometry",
+            meta: { title: "空间几何" }
         }
     ]
 };

@@ -1,5 +1,13 @@
 export default {
     /**
+     * 产生正负数1或者-1
+     */
+    getPlusOrMinus () {
+        const num = Math.random() - 0.5;
+        return num < 0 ? -1 : 1;
+    },
+
+    /**
      * 产生服从正态分布的随机数
      * @param {Number} mean: 数学期望
      * @param {Number} standardDeviation: 标准差
@@ -20,7 +28,7 @@ export default {
         const z1 = R * Math.sin(angle);
 
         const x = u + (z1 * o);
-        return x.toFixed(4);
+        return Number(x.toFixed(4));
     },
 
     // 计算欧里几得距离

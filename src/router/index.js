@@ -7,8 +7,9 @@ Vue.use(Router);
 import Layout from "@/layout";
 
 // Modules
-import Math from "./modules/math.js";
-import Algorithm from "./modules/algorithm.js";
+import Math from "./modules/math.js"; // 数学
+import Algorithm from "./modules/algorithm.js"; // 算法
+import Three from "./modules/three.js"; // Three.js
 
 export const constantRoutes = [
     {
@@ -36,6 +37,7 @@ export const constantRoutes = [
     },
     Math,
     Algorithm,
+    Three,
     { path: "*", redirect: "/404", hidden: true }
 ];
 
