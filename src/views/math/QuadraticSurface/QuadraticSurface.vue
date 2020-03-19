@@ -2,8 +2,8 @@
     <div class="lan-main">
 
         <div class="lan-main-head">
-            <div class="title">空间几何渲染</div>
-            <div class="link" href="https://www.cnblogs.com/txx120/p/11487674.html">
+            <div class="title">二次曲面渲染</div>
+            <div class="link" href="https://baike.baidu.com/item/%E4%BA%8C%E6%AC%A1%E6%9B%B2%E9%9D%A2">
                 <span>指引明路</span>
             </div>
         </div>
@@ -16,42 +16,20 @@
                     :model="inputData"
                     label-width="120px"
                     label-position="left">
-                    <el-form-item label="数据个数" required>
-                        <el-input v-model="inputData.total" type="text"></el-input>
+                    <el-form-item label="显示范围" required>
+                        <el-input v-model="range" type="text"></el-input>
                     </el-form-item>
-                    <el-form-item label="几何图形" required>
-                        <el-select v-model="inputData.type">
-                            <el-option label="球面" value="sphereSurface"></el-option>
-                            <el-option label="椭球面" value="ellipsoidSurface"></el-option>
-                        </el-select>
-                    </el-form-item>
-                    <el-form-item label="均匀分布" required>
+                    <el-form-item label="参数" required>
                         <el-tooltip
                             effect="dark"
-                            content="别选了真tm不会"
+                            content="a11,a22,a33,a12,a23,a31,a1,a2,a3,a4"
                             placement="top">
-                            <div class="lan-form-tooltip" style="margin-left: -50px;">
+                            <div class="lan-form-tooltip" style="margin-left: -70px;">
                                 <i class="el-icon-warning" />
                             </div>
                         </el-tooltip>
-                        <el-switch v-model="inputData.balance" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+                        <el-input v-model="params" type="text"></el-input>
                     </el-form-item>
-
-                    <!-- 球面参数 -->
-                    <div v-show="inputData.type === 'sphereSurface'"></div>
-
-                    <!-- 椭球面参数 -->
-                    <div v-show="inputData.type === 'ellipsoidSurface'">
-                        <el-form-item label="长半轴a" required>
-                            <el-input v-model="inputData.ellipsoid.a" type="text"></el-input>
-                        </el-form-item>
-                        <el-form-item label="中半轴b" required>
-                            <el-input v-model="inputData.ellipsoid.b" type="text"></el-input>
-                        </el-form-item>
-                        <el-form-item label="短半轴c" required>
-                            <el-input v-model="inputData.ellipsoid.c" type="text"></el-input>
-                        </el-form-item>
-                    </div>
 
                 </el-form>
                 <el-button type="primary" @click="initData">
@@ -70,22 +48,13 @@
     </div>
 </template>
 <script>
-import helper from "./SpaceGeometry.js";
+import helper from "./QuadraticSurface.js";
 export default {
     data () {
         return {
-            // 输入项
-            inputData: {
-                total: 1000, // 生成数据个数
-                type: "sphereSurface", // 生成几何图形
-                balance: false, // 点是否均匀分布
-
-                ellipsoid: {
-                    a: 5, // 椭球长半轴
-                    b: 4, // 椭球中半轴
-                    c: 3 // 椭球短半轴
-                }
-            },
+            inputData: {},
+            range: 100, // 形成数据的范围
+            params: "1,1,1,0,0,0,-4,-4,-4,0",
 
             dataSets: [] // 数据集
         };
@@ -94,12 +63,7 @@ export default {
     methods: {
         // 生成数据
         initData () {
-            if (this.inputData.type === "sphereSurface") {
-                this.dataSets = helper.getSphereSurface(this.inputData);
-            } else if (this.inputData.type === "ellipsoidSurface") {
-                this.dataSets = helper.getEllipsoidSurface(this.inputData);
-            }
-            // this.dataSets = helper.getDataSets3D(this.inputData);
+            this.dataSets = helper.getDataSets(this.range, this.params);
             this.initOriginEchart();
         },
 

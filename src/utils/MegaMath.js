@@ -8,6 +8,29 @@ export default {
     },
 
     /**
+     * 解一元二次方程
+     * @param {Number} q: 二次项
+     * @param {Number} s: 一次项
+     * @param {Number} c: 常数项
+     * @returns {Array}: 解(可能为空也可能有两个解)
+     */
+    solveQuadraticEquation (q, s, c) {
+        const beta = Math.pow(s, 2) - 4 * q * c;
+        if (beta < 0) {
+            /* 无实根 */
+            return [];
+        } else if (beta === 0) {
+            /* 两相等根 */
+            return [s / 2 / q * -1];
+        } else {
+            return [
+                (-1 * s + Math.sqrt(beta)) / 2 / q,
+                (-1 * s - Math.sqrt(beta)) / 2 / q
+            ];
+        }
+    },
+
+    /**
      * 产生服从正态分布的随机数
      * @param {Number} mean: 数学期望
      * @param {Number} standardDeviation: 标准差

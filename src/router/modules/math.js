@@ -26,6 +26,12 @@ const mathRouter = {
             component: () => import("@/views/math/SpaceGeometry/SpaceGeometry.vue"),
             name: "SpaceGeometry",
             meta: { title: "空间几何" }
+        },
+        {
+            path: "QuadraticSurface",
+            component: () => import("@/views/math/QuadraticSurface/QuadraticSurface.vue"),
+            name: "QuadraticSurface",
+            meta: { title: "二次曲面" }
         }
     ]
 };
