@@ -50,9 +50,9 @@
                     生成图像
                 </el-button>
                 <div class="tips">
-                    <span class="name">{{ this.typeName }}</span>的一般方程是: <span class="equation">{{ this.equation }}</span>
+                    <span class="name">{{ typeName }}</span>的一般方程是: <span class="equation">{{ equation }}</span>
                 </div>
-                <div class="example">{{ this.example }}</div>
+                <div class="example">{{ example }}</div>
             </div>
 
             <div class="setting-result">
@@ -91,7 +91,7 @@ export default {
                     name = "球面";
                     break;
                 case "EllipticalParaboloid":
-                    name = "椭圆抛物面"
+                    name = "椭圆抛物面";
                     break;
                 case "HyperbolicParaboloid":
                     name = "双曲抛物面";
@@ -130,8 +130,10 @@ export default {
                     break;
                 case "hyperboloidOfTwoSheets":
                     e = "X²/a² + Y²/b² - Z²/c² + 1 = 0";
+                    break;
                 case "EllipticCone":
-                    e = "X²/a² + Y²/b² - Z² = 0"
+                    e = "X²/a² + Y²/b² - Z² = 0";
+                    break;
                 default:
                     e = "";
             }
@@ -173,7 +175,7 @@ export default {
         initData () {
             this.dataSets = helper.getDataSets(this.range, this.interval, this.params);
             this.initOriginEchart();
-            console.log("dataSets:", this.dataSets);
+            // console.log("dataSets:", this.dataSets);
         },
 
         // 渲染原始数据

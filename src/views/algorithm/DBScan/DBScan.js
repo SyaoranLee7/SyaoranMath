@@ -39,9 +39,9 @@ const funcs = {
             /* 球环是一个标准差为大小半径差的一半的环 */
             const standardDeviationRadius = (options.radiusOutside - options.radiusIutside) / 2; // 期望
             for (let i = 0; i < options.totalRing; i++) {
-                const radius = MegaMath.getNormalDistribution(0, standardDeviationRadius) + options.radiusIutside; // 某一点所在球面半径
+                const radius = MegaMath.getNormalDistribution(0, standardDeviationRadius) + Number(options.radiusIutside); // 某一点所在球面半径
                 const Theta = Math.random() * 2 * Math.PI; // θ角度
-                const Phi = Math.random() * 2 * Math.PI; // φ角度
+                const Phi = Math.random() * Math.PI; // φ角度
                 const x = radius * Math.sin(Phi) * Math.cos(Theta);
                 const y = radius * Math.sin(Phi) * Math.sin(Theta);
                 const z = radius * Math.cos(Phi);
@@ -66,6 +66,33 @@ const funcs = {
             r.push(center);
         }
         return r;
+    },
+
+    /**
+     * 生成三维簇中心点
+     * @param {Number} options.length: 空间等分成每一正方形区块的边长
+     * @param {Number} options.minPts: 当区块中的数据不小于该值时, 认为该区块是核心区块
+     * @param {Array} dataSets: 原始数据集
+     * @returns {Array}: 数组中包含clust个数据点坐标
+     */
+    DBScan (options, dataSets) {
+        const length = Number(options.length); // 区块边长
+        const minPts = Number(options.minPts); // 区块密度闸值
+        const block = []; // 待处理的区块数组
+
+        /* 将空间分为一个个小区块, 并以其中坐标上xyz的最小值作为标记 */
+        for (let x = 0; x < range; x = x + length) {
+            for (let y = 0; y < range; y = y + length) {
+                for (let z = 0; z < range; z = z + length) {
+                    block.push({data: [], x, y, z});
+                }
+            }
+        }
+        console.log("block:", block);
+
+        // while (!data.length) {
+        //
+        // }
     }
 };
 

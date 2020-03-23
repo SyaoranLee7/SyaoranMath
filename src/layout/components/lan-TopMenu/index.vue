@@ -96,7 +96,6 @@ export default {
     height: 60px;
     color: #FFFFFF;
     font-size: 16px;
-    border-bottom: 1px solid #272b34;
     .menu-item {
         height: 60px;
         line-height: 62px;

@@ -91,10 +91,10 @@ export default {
                 totalClust: 100, // mode===1时生成数据个数
                 radiusSmall: 80, // mode===2时的内小球半径
                 totalSmall: 300, // mode===2时的内小球数据量
-                radiusOutside: 1000, // mode===2时的大球外半径
-                radiusIutside: 700, // mode===2时的大球内半径
-                totalRing: 500, // mode===2时的大球数据量
-                length: 2, // 密度边长
+                radiusOutside: 500, // mode===2时的大球外半径
+                radiusIutside: 400, // mode===2时的大球内半径
+                totalRing: 1000, // mode===2时的大球数据量
+                length: 25, // 密度边长
                 minPts: 5 // 密度闸值
             },
             dataSets: [], // 初始数据集
@@ -105,14 +105,14 @@ export default {
     methods: {
         start () {
             if (!this.dataSets.length) this.initData();
-            // this.result = kmeans.kmeans3D(this.inputData, this.dataSets);
+            this.result = DBScan.DBScan(this.inputData, this.dataSets);
             // this.initResultEchart();
         },
 
         /* 生成数据 */
         initData () {
             this.dataSets = DBScan.getDataSets3D(this.inputData);
-            console.log("dataSets:", this.dataSets);
+            // console.log("dataSets:", this.dataSets);
             this.initOriginEchart();
         },
 
