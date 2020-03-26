@@ -32,6 +32,12 @@ const algorithmRouter = {
             component: () => import("@/views/algorithm/DBScan/DBScan.vue"),
             name: "DBScan",
             meta: { title: "密度聚类算法-DBScan(x)" }
+        },
+        {
+            path: "Prim",
+            component: () => import("@/views/algorithm/Prim/Prim.vue"),
+            name: "Prim",
+            meta: { title: "Prim普里姆算法" }
         }
     ]
 };

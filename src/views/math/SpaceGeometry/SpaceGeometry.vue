@@ -135,6 +135,7 @@ export default {
                 symbolSize: 5,
                 itemStyle: { color: "#FFFFFF" }
             };
+            console.log(this.dataSets);
 
             const option = {xAxis3D, yAxis3D, zAxis3D, grid3D, series};
             dom.setOption(option);

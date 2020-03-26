@@ -129,8 +129,6 @@ export default {
             const meshMoon = this.meshMoon;
             const r = Date.now() * 0.00005;
 
-            const axisEarth = new THREE.Vector3(1, 1, 0);
-            // meshEarth.rotateOnAxis(axisEarth, Math.PI / 4 * 0.05);
             meshEarth.rotateY(0.01 * Math.sin( r ));
             meshMoon.rotation.y -= 0.0001;
             meshMoon.position.x = 1000 * Math.cos( r );

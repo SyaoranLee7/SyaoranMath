@@ -1,3 +1,7 @@
+const funcs = {
+};
+export default funcs;
+
 /**
  * 生成随机十六进制颜色
  * @returns {string}

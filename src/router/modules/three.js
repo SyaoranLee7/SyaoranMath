@@ -14,6 +14,12 @@ const threeRouter = {
             component: () => import("@/views/three/astronomy/astronomy.vue"),
             name: "Astronomy",
             meta: { title: "天体运动" }
+        },
+        {
+            path: "Maze",
+            component: () => import("@/views/three/Maze/Maze.vue"),
+            name: "Maze",
+            meta: { title: "迷宫" }
         }
     ]
 };

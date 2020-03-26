@@ -7,6 +7,14 @@ export default {
         return num < 0 ? -1 : 1;
     },
 
+    /** 产生随机整数
+     * @param {Number} range: 产生随机数的范围
+     */
+    getRandomInt (range) {
+        const num = Math.random() * range;
+        return Number(num.toFixed(0));
+    },
+
     /**
      * 解一元二次方程
      * @param {Number} q: 二次项
