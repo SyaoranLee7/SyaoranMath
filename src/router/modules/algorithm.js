@@ -38,6 +38,12 @@ const algorithmRouter = {
             component: () => import("@/views/algorithm/Prim/Prim.vue"),
             name: "Prim",
             meta: { title: "Prim普里姆算法" }
+        },
+        {
+            path: "AStar",
+            component: () => import("@/views/algorithm/AStar/AStar.vue"),
+            name: "AStar",
+            meta: { title: "A-Star路径搜索算法" }
         }
     ]
 };

@@ -62,7 +62,12 @@ export default {
         return Number(x.toFixed(4));
     },
 
-    // 计算欧里几得距离
+    /**
+     * 计算欧里几得距离
+     * @param {String} pointA: A点坐标 -> 1,1,1,1,1 (五维)
+     * @param {String} pointB: B点坐标 -> 2,2,2,2,2 (五维)
+     * @return {Number} 返回两点的欧氏距离(直线距离)
+     */
     getEuclideanDistance (pointA, pointB) {
         const a = pointA.split(",");
         const b = pointB.split(",");
@@ -77,7 +82,13 @@ export default {
         return result;
     },
 
-    // 计算闵可夫斯基距离集合
+    /**
+     * 计算闵可夫斯基距离集合
+     * @param {String} a: A点坐标 -> 1,1,1,1,1 (五维)
+     * @param {String} b: B点坐标 -> 2,2,2,2,2 (五维)
+     * @param {Number} p: p=1->曼哈顿距离, p=2->欧氏距离, p=无穷大(代码中即p=0)->切比雪夫距离
+     * @return {Number} 返回两点的欧氏距离(直线距离)
+     */
     getMinkowskiDistance (a, b, p) {
         const arrA = a.split(",");
         const arrB = b.split(",");

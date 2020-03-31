@@ -5,8 +5,8 @@ const funcs = {
      * 生成迷宫数据
      * @param {Number} l: 生成迷宫的边长
      */
-    getMaze (l = 10) {
-        const length = Number(l) - 2;
+    getMaze (l) {
+        const length = Number(l);
         const dataSets = this.getDataSets(length); // 迷宫数据, 这里1代表墙, 0代表路
         const finished = JSON.parse(JSON.stringify(dataSets)); // 完成矩阵, 这里1代表未完成, 0代表完成
         const list = []; // 队列
@@ -99,7 +99,7 @@ const funcs = {
      * 其中每个元素都为1, 代表都是一堵墙
      * @param {Number} length: 生成迷宫的边长
      */
-    getDataSets (length = 10) {
+    getDataSets (length) {
         const dataSets = [];
         for (let x = 0; x < length; x++) {
             dataSets[x] = [];

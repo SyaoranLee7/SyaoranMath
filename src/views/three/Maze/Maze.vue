@@ -39,15 +39,15 @@ export default {
 
             /* 相机 */
             const camera = new THREE.PerspectiveCamera(45, this.aspect, 1, 10000);
-            camera.position.set(0, 0, 1);
+            camera.position.set(0, 0, 150);
             camera.up.set(0, 0, 2);
-            camera.lookAt(1, 0, 1);
+            camera.lookAt(0, 0, 0);
             scene.add(camera);
 
             this.man = helper.getMan();
 
             scene.add( helper.getFloor() ); // 地板
-            scene.add( this.man ); // 人物
+            // scene.add( this.man ); // 人物
             scene.add( helper.getAxisHelper() ); // 坐标轴
 
             /* 渲染器 */
