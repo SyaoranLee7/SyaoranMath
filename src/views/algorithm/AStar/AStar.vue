@@ -98,58 +98,14 @@ export default {
                 silent: true // 不响应鼠标操作
             };
             const seriesPath = {
-                type: "scatter",
+                type: "line",
                 data: this.path,
-                symbol: "rect",
-                symbolSize: 6,
+                // symbol: "rect",
+                // symbolSize: 6,
                 itemStyle: { color: "#FF0000" },
                 silent: true // 不响应鼠标操作
             };
             const series = [seriesMaze, seriesPath];
-            const option = {
-                xAxis,
-                yAxis,
-                grid,
-                series,
-                animation: false
-            };
-            dom.setOption(option);
-        },
-
-        // 渲染路径
-        initPathEchart () {
-            const echarts = require("echarts");
-            const dom = echarts.init(document.getElementById("resultData"), {}, { renderer: "svg" });
-            const xAxis = {
-                axisLine: { show: false },
-                axisLabel: { show: false },
-                axisTick: { show: false },
-                splitLine: { show: false },
-                min: -1
-            };
-            const yAxis = {
-                type: "value",
-                axisLine: { show: false },
-                axisLabel: { show: false },
-                axisTick: { show: false },
-                splitLine: { show: false },
-                min: -1
-            };
-            const grid = {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-            };
-
-            const series = {
-                type: "scatter",
-                data: this.Maze,
-                symbol: "rect",
-                symbolSize: 6,
-                itemStyle: { color: "#000000" },
-                silent: true // 不响应鼠标操作
-            };
             const option = {
                 xAxis,
                 yAxis,
@@ -174,7 +130,6 @@ export default {
     .result {
         display: flex;
         #resultData {
-            display: inline-block;
             width: 800px;
             height: 800px;
         }

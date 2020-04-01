@@ -212,7 +212,7 @@ const funcs = {
     sortListByAttr (property) {
         return function (a,b) {
             return a[property] - b[property];
-        }
+        };
     },
 
     /**
