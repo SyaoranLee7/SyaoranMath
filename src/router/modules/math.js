@@ -32,6 +32,12 @@ const mathRouter = {
             component: () => import("@/views/math/QuadraticSurface/QuadraticSurface.vue"),
             name: "QuadraticSurface",
             meta: { title: "二次曲面" }
+        },
+        {
+            path: "Integration",
+            component: () => import("@/views/math/Integration/Integration.vue"),
+            name: "Integration",
+            meta: { title: "定积分计算" }
         }
     ]
 };

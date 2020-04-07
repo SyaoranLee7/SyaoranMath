@@ -36,7 +36,7 @@ const funcs = {
                 } else if (!QUADRATIC && SINGLE) {
                     /* 没有二次项则是一元一次方程 */
                     res.push([x, y, -1 * CONSTANT / SINGLE]);
-                } else if (!QUADRATIC && !SINGLE && A11 + A22 + A12 + A1 + A2 + A4 === 0) {
+                } else if (!QUADRATIC && !SINGLE && CONSTANT === 0) {
                     /* 此时z可以取任何值, 但需要验证x与y能否满足给定方程 */
                     for (let z = -1 * r; z <= r; z = z + interval) {
                         res.push([x, y, z]);
