@@ -53,7 +53,6 @@ export default {
         start () {
             this.result = Prim.getMaze(this.length);
             this.initResultEchart();
-            console.log("result:", this.result);
         },
 
         initResultEchart () {

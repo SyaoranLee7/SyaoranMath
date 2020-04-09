@@ -1,7 +1,7 @@
 import MegaMath from "@/utils/MegaMath.js";
 const range = 5; // 取值范围
 const inter = 0.01; // 精细度
-const infinitesimal = 0.001 // 积分微元
+const infinitesimal = 0.001; // 积分微元
 
 const funcs = {
     /**
