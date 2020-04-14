@@ -1,7 +1,7 @@
 <template>
     <div ref="rightPanel" :class="{show : show}" class="lan-setting">
         <div class="rightPanel-background"></div>
-        <div class="rightPanel">
+        <div class="rightPanel" :style="{'max-width' : maxWidth + 'px'}">
             <div class="handle-button" :style="{'top' : buttonTop + 'px'}" @click="show =! show">
                 <i :class="show ? 'el-icon-close' : 'el-icon-setting'" />
             </div>
@@ -28,6 +28,11 @@ export default {
         buttonTop: {
             default: 250,
             type: Number
+        },
+        // 设置栏的最大宽度
+        maxWidth: {
+            type: Number,
+            default: 260
         }
     },
 
@@ -94,7 +99,6 @@ export default {
     .rightPanel {
         width: 100%;
         height: 100vh;
-        max-width: 260px;
         position: fixed;
         top: 0;
         right: 0;

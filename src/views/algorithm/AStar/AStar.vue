@@ -72,7 +72,8 @@ export default {
                 axisLabel: { show: false },
                 axisTick: { show: false },
                 splitLine: { show: false },
-                min: -1
+                min: -1,
+                max: "dataMax"
             };
             const yAxis = {
                 type: "value",
@@ -80,11 +81,12 @@ export default {
                 axisLabel: { show: false },
                 axisTick: { show: false },
                 splitLine: { show: false },
-                min: -1
+                min: -1,
+                max: "dataMax"
             };
             const grid = {
-                top: 0,
-                right: 0,
+                top: 10,
+                right: 10,
                 bottom: 0,
                 left: 0
             };
@@ -93,7 +95,7 @@ export default {
                 type: "scatter",
                 data: this.Maze,
                 symbol: "rect",
-                symbolSize: 6,
+                symbolSize: 4,
                 itemStyle: { color: "#000000" },
                 silent: true // 不响应鼠标操作
             };
@@ -130,7 +132,7 @@ export default {
     .result {
         display: flex;
         #resultData {
-            width: 800px;
+            width: 1000px;
             height: 800px;
         }
     }
