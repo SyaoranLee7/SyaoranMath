@@ -9,7 +9,7 @@
                 <el-form-item label="质点A的坐标">
                     <el-input v-model="form.locA"></el-input>
                 </el-form-item>
-                <el-form-item label="质点A的速率">
+                <el-form-item label="质点A的速度">
                     <el-input v-model="form.speedA"></el-input>
                 </el-form-item>
                 <el-form-item label="质点B的质量kg">
@@ -18,7 +18,7 @@
                 <el-form-item label="质点B的坐标">
                     <el-input v-model="form.locB"></el-input>
                 </el-form-item>
-                <el-form-item label="质点B的速率">
+                <el-form-item label="质点B的速度">
                     <el-input v-model="form.speedB"></el-input>
                 </el-form-item>
                 <el-form-item label="运动速度值">

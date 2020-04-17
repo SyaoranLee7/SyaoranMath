@@ -27,12 +27,12 @@ const algorithmRouter = {
             name: "LevelCohesion",
             meta: { title: "LevelCohesion层次凝聚算法" }
         },
-        {
-            path: "DBScan",
-            component: () => import("@/views/algorithm/DBScan/DBScan.vue"),
-            name: "DBScan",
-            meta: { title: "密度聚类算法-DBScan(x)" }
-        },
+        // {
+        //     path: "DBScan",
+        //     component: () => import("@/views/algorithm/DBScan/DBScan.vue"),
+        //     name: "DBScan",
+        //     meta: { title: "密度聚类算法-DBScan(x)" }
+        // },
         {
             path: "Prim",
             component: () => import("@/views/algorithm/Prim/Prim.vue"),

@@ -10,6 +10,7 @@ import Layout from "@/layout";
 import Math from "./modules/math.js"; // 数学
 import Algorithm from "./modules/algorithm.js"; // 算法
 import Three from "./modules/three.js"; // Three.js
+import Application from "./modules/application"; // 应用
 
 export const constantRoutes = [
     {
@@ -38,6 +39,7 @@ export const constantRoutes = [
     Math,
     Algorithm,
     Three,
+    Application,
     { path: "*", redirect: "/404", hidden: true }
 ];
 

@@ -25,14 +25,14 @@ const threeRouter = {
             path: "TwoBody",
             component: () => import("@/views/three/Two-Body/Two-Body.vue"),
             name: "TwoBody",
-            meta: { title: "二体问题(x)" }
-        },
-        {
-            path: "GameOfLife",
-            component: () => import("@/views/three/GameOfLife/GameOfLife.vue"),
-            name: "GameOfLife",
-            meta: { title: "生命游戏" }
+            meta: { title: "二体问题(i)" }
         }
+        // {
+        //     path: "GameOfLife",
+        //     component: () => import("@/views/three/GameOfLife/GameOfLife.vue"),
+        //     name: "GameOfLife",
+        //     meta: { title: "生命游戏" }
+        // }
     ]
 };
 
