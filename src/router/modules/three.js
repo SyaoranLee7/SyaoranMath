@@ -26,6 +26,12 @@ const threeRouter = {
             component: () => import("@/views/three/Two-Body/Two-Body.vue"),
             name: "TwoBody",
             meta: { title: "二体问题(i)" }
+        },
+        {
+            path: "Cube",
+            component: () => import("@/views/three/Cube/Cube.vue"),
+            name: "Cube",
+            meta: { title: "异次元杀阵(i)" }
         }
         // {
         //     path: "GameOfLife",

@@ -20,7 +20,7 @@ export default {
      * @param {Number} q: 二次项
      * @param {Number} s: 一次项
      * @param {Number} c: 常数项
-     * @returns {Array}: 解(可能为空也可能有两个解)
+     * @returns {Array}: 解, 内含零到两个根
      */
     solveQuadraticEquation (q, s, c) {
         const beta = Math.pow(s, 2) - 4 * q * c;
@@ -35,6 +35,28 @@ export default {
                 (-1 * s + Math.sqrt(beta)) / 2 / q,
                 (-1 * s - Math.sqrt(beta)) / 2 / q
             ];
+        }
+    },
+
+    /**
+     * 向量运算
+     * @param {String, Array} vector: 向量A, 可传1,1,1,..或者[1,1,1..]
+     * @param {String} type: 运算类型-> "+", "-"
+     * @returns {Array}: 解, 内含零到两个根
+     */
+    VectorOperation ( vA, vB, type ) {
+        let vectorA, vectorB;
+        if ( typeof vA === "string" ) {
+            vectorA = [ Number(vA.split(",")[0]), Number(vA.split(",")[1]) ];
+        } else vectorA = vA;
+        if ( typeof vB === "string" ) {
+            vectorB = [ Number(vB.split(",")[0]), Number(vB.split(",")[1]) ];
+        } else vectorB = vB;
+
+        if ( type === "+" ) {
+            return [ vectorB[0] + vectorA[0], vectorB[1] + vectorA[1] ];
+        } else if ( type === "-" ) {
+            return [ vectorB[0] - vectorA[0], vectorB[1] - vectorA[1] ];
         }
     },
 
